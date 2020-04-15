@@ -1,0 +1,76 @@
+C:\Maxwell\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Maxwell\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmJogo.resources
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.Properties.Resources.resources
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.exe
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.pdb
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmCadastro.resources
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmMenu.resources
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmPesquisa.resources
+C:\Maxwell\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\ResGen.read.1.tlog
+C:\Maxwell\CSharp\JogoForca\JogoForca\obj\x86\Debug\ResGen.write.1.tlog
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.exe
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.pdb
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmJogo.resources
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmCadastro.resources
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmMenu.resources
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmPesquisa.resources
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.Properties.Resources.resources
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csprojResolveAssemblyReference.cache
+C:\Maxwell\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csproj.GenerateResource.Cache
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.exe
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.pdb
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csprojResolveAssemblyReference.cache
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmJogo.resources
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmCadastro.resources
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmMenu.resources
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmPesquisa.resources
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.Properties.Resources.resources
+C:\Users\maxwell.miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csproj.GenerateResource.Cache
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.exe
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.pdb
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csprojResolveAssemblyReference.cache
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmJogo.resources
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmCadastro.resources
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmMenu.resources
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmPesquisa.resources
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.Properties.Resources.resources
+C:\Users\Miquelino\Google Drive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csproj.GenerateResource.Cache
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.exe
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.pdb
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csprojResolveAssemblyReference.cache
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmJogo.resources
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmCadastro.resources
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmMenu.resources
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmPesquisa.resources
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.Properties.Resources.resources
+C:\Users\MIQUELINO\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csproj.GenerateResource.Cache
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csprojAssemblyReference.cache
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmJogo.resources
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmCadastro.resources
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmMenu.resources
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.frmPesquisa.resources
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.Properties.Resources.resources
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csproj.GenerateResource.cache
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.csproj.CoreCompileInputs.cache
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.exe
+C:\Users\Maxwell\OneDrive\PROJETOS\CSharp\JogoForca\JogoForca\obj\x86\Debug\JogoForca.pdb
