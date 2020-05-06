@@ -1,0 +1,342 @@
+03/03/2020 23:11:25 - Conectando a base de dados.
+
+
+03/03/2020 23:11:26 - Base de dados conectado.
+
+
+03/03/2020 23:11:26 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:11:50 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:13:36 - Conectando a base de dados.
+
+
+03/03/2020 23:13:38 - Base de dados conectado.
+
+
+03/03/2020 23:13:38 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:13:38 - Conectando a base de dados.
+
+
+03/03/2020 23:13:38 - Base de dados conectado.
+
+
+03/03/2020 23:13:38 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:13:41 - Conectando a base de dados.
+
+
+03/03/2020 23:13:41 - Base de dados conectado.
+
+
+03/03/2020 23:13:41 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:13:41 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:14:15 - Conectando a base de dados.
+
+
+03/03/2020 23:14:16 - Base de dados conectado.
+
+
+03/03/2020 23:14:16 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:14:16 - Conectando a base de dados.
+
+
+03/03/2020 23:14:16 - Base de dados conectado.
+
+
+03/03/2020 23:14:16 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:14:18 - Conectando a base de dados.
+
+
+03/03/2020 23:14:18 - Base de dados conectado.
+
+
+03/03/2020 23:14:18 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:14:18 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:15:29 - Conectando a base de dados.
+
+
+03/03/2020 23:15:30 - Base de dados conectado.
+
+
+03/03/2020 23:15:30 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:15:30 - Conectando a base de dados.
+
+
+03/03/2020 23:15:30 - Base de dados conectado.
+
+
+03/03/2020 23:15:30 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:15:31 - Conectando a base de dados.
+
+
+03/03/2020 23:15:31 - Base de dados conectado.
+
+
+03/03/2020 23:15:31 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:15:31 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:16:51 - Conectando a base de dados.
+
+
+03/03/2020 23:16:51 - Base de dados conectado.
+
+
+03/03/2020 23:16:51 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:16:51 - Conectando a base de dados.
+
+
+03/03/2020 23:16:51 - Base de dados conectado.
+
+
+03/03/2020 23:16:51 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:16:52 - Conectando a base de dados.
+
+
+03/03/2020 23:16:53 - Base de dados conectado.
+
+
+03/03/2020 23:16:53 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:16:53 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:17:16 - Conectando a base de dados.
+
+
+03/03/2020 23:17:17 - Base de dados conectado.
+
+
+03/03/2020 23:17:17 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:17:17 - Conectando a base de dados.
+
+
+03/03/2020 23:17:17 - Base de dados conectado.
+
+
+03/03/2020 23:17:17 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:17:18 - Conectando a base de dados.
+
+
+03/03/2020 23:17:18 - Base de dados conectado.
+
+
+03/03/2020 23:17:18 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:17:18 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:17:51 - Conectando a base de dados.
+
+
+03/03/2020 23:17:52 - Base de dados conectado.
+
+
+03/03/2020 23:17:52 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:17:52 - Conectando a base de dados.
+
+
+03/03/2020 23:17:52 - Base de dados conectado.
+
+
+03/03/2020 23:17:52 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:17:53 - Conectando a base de dados.
+
+
+03/03/2020 23:17:53 - Base de dados conectado.
+
+
+03/03/2020 23:17:53 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:17:53 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:19:06 - Conectando a base de dados.
+
+
+03/03/2020 23:19:07 - Base de dados conectado.
+
+
+03/03/2020 23:19:07 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:19:07 - Conectando a base de dados.
+
+
+03/03/2020 23:19:07 - Base de dados conectado.
+
+
+03/03/2020 23:19:07 - Guardado o caminho ( C:\Program Files\MySQL\MySQL Server 8.0\ ) na variavel.
+
+
+03/03/2020 23:19:08 - Conectando a base de dados.
+
+
+03/03/2020 23:19:08 - Base de dados conectado.
+
+
+03/03/2020 23:19:08 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:19:08 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:20:14 - Conectando a base de dados.
+
+
+03/03/2020 23:20:15 - Base de dados conectado.
+
+
+03/03/2020 23:20:15 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:20:15 - Conectando a base de dados.
+
+
+03/03/2020 23:20:15 - Base de dados conectado.
+
+
+03/03/2020 23:20:15 - Guardado o caminho ( C:\Program Files\MySQL\MySQL Server 8.0\ ) na variavel.
+
+
+03/03/2020 23:20:18 - Conectando a base de dados.
+
+
+03/03/2020 23:20:18 - Base de dados conectado.
+
+
+03/03/2020 23:20:18 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:20:18 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:22:38 - Conectando a base de dados.
+
+
+03/03/2020 23:22:38 - Base de dados conectado.
+
+
+03/03/2020 23:22:38 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:22:38 - Conectando a base de dados.
+
+
+03/03/2020 23:22:38 - Base de dados conectado.
+
+
+03/03/2020 23:22:38 - Guardado o caminho ( C:\Program Files\MySQL\MySQL Server 8.0\ ) na variavel.
+
+
+03/03/2020 23:22:40 - Conectando a base de dados.
+
+
+03/03/2020 23:22:40 - Base de dados conectado.
+
+
+03/03/2020 23:22:40 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:22:40 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:24:26 - Conectando a base de dados.
+
+
+03/03/2020 23:24:27 - Base de dados conectado.
+
+
+03/03/2020 23:24:27 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:24:27 - Conectando a base de dados.
+
+
+03/03/2020 23:24:27 - Base de dados conectado.
+
+
+03/03/2020 23:24:27 - Guardado o caminho ( C:\Program Files\MySQL\MySQL Server 8.0\ ) na variavel.
+
+
+03/03/2020 23:24:31 - Conectando a base de dados.
+
+
+03/03/2020 23:24:31 - Base de dados conectado.
+
+
+03/03/2020 23:24:31 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:24:31 - Iniciando a compactação no arquivo.
+
+
+03/03/2020 23:28:12 - Conectando a base de dados.
+
+
+03/03/2020 23:28:12 - Base de dados conectado.
+
+
+03/03/2020 23:28:12 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:28:12 - Conectando a base de dados.
+
+
+03/03/2020 23:28:12 - Base de dados conectado.
+
+
+03/03/2020 23:28:12 - Guardado o caminho ( C:\Program Files\MySQL\MySQL Server 8.0\ ) na variavel.
+
+
+03/03/2020 23:28:13 - Conectando a base de dados.
+
+
+03/03/2020 23:28:13 - Base de dados conectado.
+
+
+03/03/2020 23:28:13 - Guardado o caminho ( C:\ProgramData\MySQL\MySQL Server 8.0\Data\ ) na variavel.
+
+
+03/03/2020 23:28:13 - Iniciando a compactação no arquivo.
+
+

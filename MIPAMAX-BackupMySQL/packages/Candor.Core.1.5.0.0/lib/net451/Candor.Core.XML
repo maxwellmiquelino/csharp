@@ -1,0 +1,1995 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Candor.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Candor.Configuration.Provider.ProviderCollection`1">
+            <summary>
+            Represents a strongly typed collection of provider implementations.
+            </summary>
+            <typeparam name="T">The type of provider that will be in the list. The provider MUST inherit 
+            from System.Configuration.Provider.ProviderBase.</typeparam>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.#ctor">
+            <summary>
+            Instantiates a new empty provider collection that does not use configuration, 
+            and instead allows for adding providers at run time.
+            </summary>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.#ctor(System.Type)">
+            <summary>
+            Instantiates a new ProviderCollection and initializes it from the configuration for the specified parent type.
+            </summary>
+            <param name="parentType"></param>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.#ctor(System.Type,System.String)">
+            <summary>
+            Instantiates a new ProviderCollection and initializes it from the configuration 
+            for the specified parent type and the specified configuration section.
+            </summary>
+            <param name="parentType"></param>
+            <param name="configSectionName"></param>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.InstantiateProviders">
+            <summary>
+            Instantiates all configured providers.
+            </summary>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.InstantiateProviders(System.String)">
+            <summary>
+            Instantiates all configured providers.
+            </summary>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.AssertProviderDefined">
+            <summary>
+            Throws an exception if no active provider is defined.
+            </summary>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.SetActiveProvider(System.String)">
+            <summary>
+            Sets the current provider to the provider of the specified name.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.SetActiveProvider(`0)">
+            <summary>
+            Sets the current provider to the specified instance.  If it does not currently exist in the collection then it will be added.
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.Add(System.Configuration.Provider.ProviderBase)">
+            <summary>
+            Adds a provider to the collection.
+            </summary>
+            <param name="provider">The provider to add to the collection.</param>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderCollection`1.Add(`0)">
+            <summary>
+            Adds a provider to the collection.
+            </summary>
+            <param name="provider">The provider to add to the collection.</param>
+            <remarks>This method overload helps chaining for code configuration.</remarks>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderCollection`1.LogProvider">
+            <summary>
+            Gets or sets the log destination for this collection.  If not set, it will be automatically loaded when needed.
+            </summary>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderCollection`1.ActiveProvider">
+            <summary>
+            Gets the provider to be activated for the current environment.
+            </summary>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderCollection`1.Item(System.String)">
+            <summary>
+            Indexer that get a provider from the collection by name.
+            </summary>
+            <param name="name">The name of the provider to get.</param>
+            <returns>The provider that had the given name.</returns>
+        </member>
+        <member name="T:Candor.Configuration.Provider.ProviderConfigurationSection">
+            <summary>
+            A custom configuration section for any provider abstraction.
+            </summary>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderConfigurationSection.#ctor">
+            <summary>
+            Creates a new instance of ProviderConfigurationSection
+            </summary>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderConfigurationSection.Providers">
+            <summary>
+            The provider definitions.
+            </summary>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderConfigurationSection.DefaultProvider">
+            <summary>
+            Gets or sets the name of the default provider.
+            </summary>
+        </member>
+        <member name="T:Candor.Configuration.Provider.ProviderResolver`1">
+            <summary>
+            A bridge between applications using Provider model and depedency injection.
+            </summary>
+            <remarks>
+            Sample xml configuration for base type 'Company.App.SomethingProvider':
+            &lt;Company.App.SomethingProvider defaultProvider="cache" &gt;
+             &lt;providers&gt;
+              &lt;add name="cache" type="Company.App.CacheProviders.CacheSomethingProvider, Company.App.CacheProviders"
+               delegateProviderName="sql"/&gt; 
+              &lt;add name="sql" type="Company.App.SqlProviders.SomethingProvider, Company.App.SqlProviders"
+               connectionName="DefaultConnection"/&gt;
+             &lt;/providers&gt;
+            &lt;/Company.App.SomethingProvider&gt;
+            
+            Sample equivalent code configuration (also no static Manager class is required): 
+            ProviderResolver&lt;SomethingProvider&gt;.Configure()
+             .Append(new SqlSomethingProvider("sql") { ConnectionName = "DefaultConnection"})
+             .AppendActive(new CacheSomethingProvider("cache") { DelegateProviderName = "sql"});
+            </remarks>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderResolver`1.Append(`0)">
+            <summary>
+            Appends another provider and returns the resolver for chaining purposes.
+            </summary>
+            <param name="provider">The provider instance to append.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderResolver`1.AppendActive(`0)">
+            <summary>
+            Appends another provider instance and makes it the active provider, then returns the resolver for chaining purposes.
+            </summary>
+            <param name="provider">The provider instance to append.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderResolver`1.Configure">
+            <summary>
+            Sets the <see cref="P:Candor.Configuration.Provider.ProviderResolver`1.Providers"/> collection to a new list and returns the resolver for further configuration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderResolver`1.Provider">
+            <summary>
+            Gets the active provider from the <see cref="P:Candor.Configuration.Provider.ProviderResolver`1.Providers"/> collection.
+            </summary>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderResolver`1.Providers">
+            <summary>
+            Gets or sets the configured providers (xml or code config).
+            </summary>
+            <remarks>These are lazy loaded on the first and only first request.
+            If the value is set to null it will be reloaded again as needed.
+            In the code configuration example you can set this to a collection of
+            desired providers and then it will not be loaded from configuration xml.</remarks>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderResolver`1.Get">
+            <summary>
+            Gets the resolver instance for the generic type and lazy loads it as needed.
+            </summary>
+        </member>
+        <member name="T:Candor.Configuration.Provider.ProviderHelperExtensions">
+            <summary>
+            Extension methods to get configuration values more simply from
+            NameValueCollection or XmlAttributeCollection
+            </summary>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetBooleanValue(System.Collections.Specialized.NameValueCollection,System.String,System.Boolean)">
+            <summary>
+            A helper method to get a boolean value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to a boolean
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetBooleanValue(System.Xml.XmlAttributeCollection,System.String,System.Boolean)">
+            <summary>
+            A helper method to get a boolean value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to a boolean
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetInt64Value(System.Collections.Specialized.NameValueCollection,System.String,System.Int64)">
+            <summary>
+            A helper method to get a Int64 integer value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to a Int64 integer
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetInt64Value(System.Xml.XmlAttributeCollection,System.String,System.Int64)">
+            <summary>
+            A helper method to get a Int64 integer value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to a Int64 integer
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetInt32Value(System.Collections.Specialized.NameValueCollection,System.String,System.Int32)">
+            <summary>
+            A helper method to get an integer value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to an integer
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetInt32Value(System.Xml.XmlAttributeCollection,System.String,System.Int32)">
+            <summary>
+            A helper method to get an integer value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to an integer
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetDoubleValue(System.Collections.Specialized.NameValueCollection,System.String,System.Double)">
+            <summary>
+            A helper method to get an double value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to a double
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetDoubleValue(System.Xml.XmlAttributeCollection,System.String,System.Double)">
+            <summary>
+            A helper method to get a double value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.  If the setting can not be cast to a double
+            then an exception is thrown.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetStringValue(System.Collections.Specialized.NameValueCollection,System.String,System.String)">
+            <summary>
+            A helper method to get a string value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.</returns>
+        </member>
+        <member name="M:Candor.Configuration.Provider.ProviderHelperExtensions.GetStringValue(System.Xml.XmlAttributeCollection,System.String,System.String)">
+            <summary>
+            A helper method to get a string value from a configuration
+            setting value.
+            </summary>
+            <param name="config">The available configuation values.</param>
+            <param name="name">The name of the setting to retrieve.</param>
+            <param name="defaultValue">The default in case the named
+            value does not exist.</param>
+            <returns>If the setting is not specified, then the default
+            is returned.</returns>
+        </member>
+        <member name="T:Candor.Configuration.Provider.ProviderResolverDictionary">
+            <summary>
+            An internal only dictionary of resolvers for all provider types.
+            </summary>
+            <remarks>Used only by ProviderResolver</remarks>
+        </member>
+        <member name="P:Candor.Configuration.Provider.ProviderResolverDictionary.Resolvers">
+            <summary>
+            Gets the dictionary of resolvers.
+            </summary>
+        </member>
+        <member name="T:Candor.Data.DataRecordExtensions">
+            <summary>
+            Methods to get a data record row value cast to the desired type.
+            </summary>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.FieldIndex(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets the index of a field of a specific name in a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns>The index location, or -1 if not found.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetValue(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns>Returns null if the field does not exist or the value is 
+            null(DbNull).  Otherwise the field value is returned.  </returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetValue(System.Data.IDataRecord,System.String,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns>Returns null if the field does not exist or the value is 
+            null(DbNull).  Otherwise the field value is returned.  </returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetValue(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetValue(System.Object,System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetString(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetString(System.Data.IDataRecord,System.String,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetString(System.Data.IDataRecord,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetString(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetString(System.Object,System.String)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt16(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt16(System.Data.IDataRecord,System.String,System.Int16)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt16(System.Data.IDataRecord,System.String,System.Int16,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt16(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt16(System.Object,System.Int16)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt32(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt32(System.Data.IDataRecord,System.String,System.Int32)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt32(System.Data.IDataRecord,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt32(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt32(System.Object,System.Int32)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt64(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt64(System.Data.IDataRecord,System.String,System.Int64)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt64(System.Data.IDataRecord,System.String,System.Int64,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt64(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetInt64(System.Object,System.Int64)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDouble(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDouble(System.Data.IDataRecord,System.String,System.Double)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDouble(System.Data.IDataRecord,System.String,System.Double,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDouble(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDouble(System.Object,System.Double)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDecimal(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDecimal(System.Data.IDataRecord,System.String,System.Decimal)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDecimal(System.Data.IDataRecord,System.String,System.Decimal,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDecimal(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDecimal(System.Object,System.Decimal)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDateTime(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDateTime(System.Data.IDataRecord,System.String,System.DateTime)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDateTime(System.Data.IDataRecord,System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDateTime(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetDateTime(System.Object,System.DateTime)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetUTCDateTime(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetUTCDateTime(System.Data.IDataRecord,System.String,System.DateTime)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetUTCDateTime(System.Data.IDataRecord,System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetUTCDateTime(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetUTCDateTime(System.Object,System.DateTime)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetBoolean(System.Data.IDataRecord,System.String,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetBoolean(System.Data.IDataRecord,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetBoolean(System.Object,System.Boolean)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetGuid(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetGuid(System.Data.IDataRecord,System.String,System.Guid)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetGuid(System.Data.IDataRecord,System.String,System.Guid,System.Boolean)">
+            <summary>
+            Gets a field value from a record.
+            </summary>
+            <param name="record">The source record.</param>
+            <param name="name">The field name to find.</param>
+            <param name="defaultValue">The default in case the value is not assigned.</param>
+            <param name="ignoreErrors">Specifies if a missing field should return the default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetGuid(System.Object)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Candor.Data.DataRecordExtensions.GetGuid(System.Object,System.Guid)">
+            <summary>
+            Gets a value from a database field value or output parameter.
+            </summary>
+            <param name="fieldValue">The value to convert.</param>
+            <param name="defaultValue">The default value if the original is DbNull.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:Candor.Data.IOptimisticSyncStore">
+            <summary>
+            Defines a data store that can get and then update data optimistically; 
+            Ensuring on write that it is writing over the same data it retrieved, 
+            meaning no other process has updated the value since it was retrieved.
+            </summary>
+        </member>
+        <member name="M:Candor.Data.IOptimisticSyncStore.GetData(System.String)">
+            <summary>
+            Gets the data for a specific logical group container, such as a 
+            database table, blob, queue, or file.
+            </summary>
+            <param name="tableName">The table or container name.</param>
+            <returns>The current data value and syncronization data.</returns>
+            <exception cref="T:System.ArgumentException">An exception occurs if the table name does not exist.</exception>
+        </member>
+        <member name="M:Candor.Data.IOptimisticSyncStore.TryWrite(Candor.Data.OptimisticSyncData)">
+            <summary>
+            Attempts to write to the specific container a given data value.
+            </summary>
+            <param name="syncData">The new data value and synchronization key.</param>
+            <returns>True if the update succeeded, meaning no other caller 
+            attempted to update the value since it was retrieved.</returns>
+            <exception cref="T:System.ArgumentException">An exception occurs if the table name does not exist.</exception>
+        </member>
+        <member name="T:Candor.Data.ISequenceIdOptimisticSyncStore">
+            <summary>
+            An optimistic sync store for sequence Ids.
+            </summary>
+        </member>
+        <member name="M:Candor.Data.ISequenceIdOptimisticSyncStore.InsertOrUpdate(Candor.Data.SequenceIdSchema)">
+            <summary>
+            Ensures the sequence id schema exists with the options defined.
+            </summary>
+            <param name="sequence">The sequence schema.</param>
+            <remarks> 
+            This method should assume concurrent calls to reserve new sets of Ids,
+            and handle optimistic concurrency accordingly.
+            </remarks>
+        </member>
+        <member name="M:Candor.Data.ISequenceIdOptimisticSyncStore.GetSequenceIdStores">
+            <summary>
+            Gets all the current sequence definitions.
+            </summary>
+        </member>
+        <member name="M:Candor.Data.ISequenceIdOptimisticSyncStore.GetSequenceIdStore(System.String)">
+            <summary>
+            Gets a single sequence definition for a specific table.
+            </summary>
+            <param name="tableName">The table name the sequence targets.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Candor.Data.OptimisticSyncData">
+            <summary>
+            A container to store the actual latest sequence Id reserved for a given id generator
+            and table name.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.OptimisticSyncData.TableName">
+            <summary>
+            Gets or sets the table or container name.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.OptimisticSyncData.ConcurrencyKey">
+            <summary>
+            Gets or sets the syncronization key.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.OptimisticSyncData.Data">
+            <summary>
+            Gets or sets the data value.
+            </summary>
+        </member>
+        <member name="T:Candor.Data.SequenceIdGenerator">
+            <summary>
+            Generates sequences for tables in which the database does not have a built in sequence capability.
+            </summary>
+        </member>
+        <member name="M:Candor.Data.SequenceIdGenerator.#ctor(Candor.Data.ISequenceIdOptimisticSyncStore)">
+            <summary>
+            Creates a new generator that loads all sequence schemas from the supplied store.
+            </summary>
+            <param name="store"></param>
+        </member>
+        <member name="M:Candor.Data.SequenceIdGenerator.#ctor(Candor.Data.ISequenceIdOptimisticSyncStore,Candor.Data.SequenceIdStore)">
+            <summary>
+            Creates a new generator with only a single sequence schema.
+            </summary>
+            <param name="store"></param>
+            <param name="sequence"></param>
+        </member>
+        <member name="M:Candor.Data.SequenceIdGenerator.NextId(System.String)">
+            <summary>
+            Takes the first reserved Id for this node from the sequence.  
+            If necassary, it will reserve a new block of Ids.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Candor.Data.SequenceIdGenerator.MaxSyncRetries">
+            <summary>
+            Gets or sets the number of retries maximum to connect to the store to reserve a new block of Ids.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdGenerator.IgnoreCase">
+            <summary>
+            Gets or sets if case will be ignored when getting a series of Ids and the next Id.
+            </summary>
+        </member>
+        <member name="T:Candor.Data.SequenceIdSchema">
+            <summary>
+            Defines the schema for a sequence Id that supports an Id with any character set.
+            This is not limited to simple numeric sequences.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdSchema.TableName">
+            <summary>
+            Gets or sets the table name.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdSchema.CharacterSetType">
+            <summary>
+            Gets or sets the character set type used to generate the next sequence Id from a given value.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdSchema.SeedValue">
+            <summary>
+            Gets or sets the seed value the first id should be incremented from (not that of the first value).
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdSchema.RangeSize">
+            <summary>
+            Gets or sets the number of Ids to reserve from the store per node.
+            </summary>
+            <remarks>
+            This should at least be the number of sequences you expect to generate per node within a minute.
+            </remarks>
+        </member>
+        <member name="T:Candor.Data.SequenceIdStore">
+            <summary>
+            A container for the latest sequence ID generated for a given schema (table).
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdStore.IdLock">
+            <summary>
+            A lock object used by the Id Generator to only allow a single caller to increment the Sequence Id.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdStore.Schema">
+            <summary>
+            Gets or sets the schema of this sequence store.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdStore.CharacterSet">
+            <summary>
+            Gets the character set for this sequence.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdStore.LastId">
+            <summary>
+            Gets or sets the last id from which new ids should be incremented from.
+            </summary>
+        </member>
+        <member name="P:Candor.Data.SequenceIdStore.FinalCachedId">
+            <summary>
+            Gets or sets the last id that is cached for use by the current running node (server or process).
+            </summary>
+        </member>
+        <member name="T:Candor.ExecutionResults">
+            <summary>
+            Tracks the results of an operation for reporting to a method callee.
+            </summary>
+            <remarks>
+            <para>
+            This type is typically used as the return value of a method when it 
+            needs to return a boolean flag that an operation is successful, and when 
+            the operation is not successful it needs to report reasons to an end user.
+            </para><para>
+            Commonly used to return validation messages to a user when inputs are 
+            invalid.  This type can be extended for use by methods that need to
+            return more specific additional information.
+            </para><para>
+            This is not meant to replace runtime exceptions.  A method should still
+            raise an exception when a failure occurs.
+            </para>
+            </remarks>
+            <example>
+            Here is an example of proper usage:
+            <code>
+            public SomeType MyMethod(int arg1, ExecutionResults result)
+            {
+            	result.FailOnWarning = false; //default value
+            	if (validationWarning1)
+            	{
+            		result.AddWarning("Be aware that situation 1 occured.");
+            		//	result.Success=true
+            	}
+            	if (validationFailure1)
+            	{
+            		result.AddError("validation 1 failed.");
+            		//	result.Success=false
+            	}
+            	if (result.Success)
+            		return new SomeType(arg1);
+            	else
+            		return null;
+            }
+            </code>
+            <code>
+            public SomeType MyMethod2(int arg1, ExecutionResults result)
+            {
+            	result.FailOnWarning = true;
+            	if (validationWarning1)
+            	{
+            		result.AddWarning("Be aware that situation 1 occured.");
+            		//	result.Success=false
+            	}
+            	if (validationFailure1)
+            	{
+            		result.AddError("validation 1 failed.");
+            		//	result.Success=false
+            	}
+            	if (result.Success)
+            		return new SomeType(arg1);
+            	else
+            		return null;
+            }
+            </code>
+            The following is not a good design practice.
+            <code>
+            public SomeType MyMethod(int arg1, ExecutionResults result)
+            {
+            	try
+            	{
+            		//Do something that may cause an exception here...
+            	}
+            	catch (Exception ex)
+            	{	//DO NOT DO THIS!!!
+            		result.AddError(ex.Message);
+            	}
+            	if (result.Success)
+            		return new SomeType(arg1);
+            	else
+            		return null;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Candor.ExecutionResults.#ctor">
+            <summary>
+            Creates a new instance of ExecutionResults.
+            </summary>
+        </member>
+        <member name="M:Candor.ExecutionResults.Fail">
+            <summary>
+            Fails the result without adding a reason why.
+            </summary>
+        </member>
+        <member name="M:Candor.ExecutionResults.Combine(Candor.ExecutionResults)">
+            <summary>
+            Combines the results of another ExecutionResults into this instance.
+            </summary>
+            <param name="results">The results to be combined.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendInfo(System.String)">
+            <summary>
+            Adds a new info to the result.
+            </summary>
+            <param name="message">The info message.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendInfoFormat(System.String,System.Object[])">
+            <summary>
+            Adds a new info to the result replacing the format items in the
+            message with the text equivalent of the specified args.  Each
+            format specification is replaced by the string representation of
+            the corresponding item in the object argument.
+            </summary>
+            <param name="message">The info message format with zero or 
+            more format items.</param>
+            <param name="args">An <see cref="T:System.Object"/>Object</param> 
+            array containing zero or more items to format.
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendInfos(System.String[])">
+            <summary>
+            Adds new infos to the result.
+            </summary>
+            <param name="messages">An array of info messages.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendInfos(System.Collections.Specialized.StringCollection)">
+            <summary>
+            Adds new infos to the result.
+            </summary>
+            <param name="messages">A collection of info messages.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendWarning(System.String)">
+            <summary>
+            Adds a new warning to the result.
+            </summary>
+            <param name="message">The warning message.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendWarningFormat(System.String,System.Object[])">
+            <summary>
+            Adds a new warning to the result replacing the format items in the
+            message with the text equivalent of the specified args.  Each
+            format specification is replaced by the string representation of
+            the corresponding item in the object argument.
+            </summary>
+            <param name="message">The warning message format with zero or 
+            more format items.</param>
+            <param name="args">An <see cref="T:System.Object"/>Object</param> 
+            array containing zero or more items to format.
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendWarnings(System.String[])">
+            <summary>
+            Adds new warnings to the result.
+            </summary>
+            <param name="messages">An array of warning messages.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendWarnings(System.Collections.Specialized.StringCollection)">
+            <summary>
+            Adds new warnings to the result.
+            </summary>
+            <param name="messages">A collection of warning messages.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendError(System.String)">
+            <summary>
+            Adds a new error to the result.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendErrorFormat(System.String,System.Object[])">
+            <summary>
+            Adds a new error to the result replacing the format items in the
+            message with the text equivalent of the specified args.  Each
+            format specification is replaced by the string representation of
+            the corresponding item in the object argument.
+            </summary>
+            <param name="message">The error message format with zero or 
+            more format items.</param>
+            <param name="args">An <see cref="T:System.Object"/>Object</param> 
+            array containing zero or more items to format.
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendErrors(System.String[])">
+            <summary>
+            Adds new errors to the result.
+            </summary>
+            <param name="messages">An array of error messages.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.AppendErrors(System.Collections.Specialized.StringCollection)">
+            <summary>
+            Adds new errors to the result.
+            </summary>
+            <param name="messages">A collection of error messages.</param>
+        </member>
+        <member name="M:Candor.ExecutionResults.ToString">
+            <summary>
+            Converts the results of this instance into a single string.
+            </summary>
+            <returns>A string containing all execution steps
+            in this instance.</returns>
+            <example>
+            An example of a call to a business component from a web page that
+            contains a Label control called 'messageLabel'.
+            <code>
+            ExecutionResults result = SomeClass.SomeMethod(arg1);
+            messageLabel.Text = result.ToString();
+            </code>
+            <code>
+            ExecutionResults result = new ExecutionResults();
+            SomeClass.SomeMethod(arg1, result);
+            messageLabel.Text = result.ToString();
+            </code>
+            </example>
+        </member>
+        <member name="M:Candor.ExecutionResults.ToString(System.String)">
+            <summary>
+            Converts the results of this instance into a single
+            string using the supplied delimeter.
+            </summary>
+            <param name="delimeter">Optional, a string to place
+            between each execution step.  Pass in
+            'null' or an empty string for no delimeter.</param>
+            <returns>A string containing all errors and warnings
+            in this instance.</returns>
+            <example>
+            An example of a call to a business component from a web page that
+            contains a Label control called 'messageLabel'.
+            <code>
+            ExecutionResults result = SomeClass.SomeMethod(arg1);
+            messageLabel.Text = result.ToString("&lt;BR&gt;");
+            </code>
+            <code>
+            ExecutionResults result = new ExecutionResults();
+            SomeClass.SomeMethod(arg1, result);
+            messageLabel.Text = result.ToString("&lt;BR&gt;");
+            </code>
+            </example>
+        </member>
+        <member name="M:Candor.ExecutionResults.ToString(System.String,System.String)">
+            <summary>
+            Converts the results of this instance into a single
+            string using the supplied delimeter.
+            </summary>
+            <param name="itemFormat">The format for each execution step.
+            Use '{Message}' in the format string to locate the message.
+            Use '{StepType}' in the format string to locate the step type name.  
+            Do not include any other format specifications 
+            (IE. '{1}', '{2}', etc...)</param>
+            <param name="delimeter">A string to place between each item.</param>
+            <returns>A string containing all execution steps
+            in this instance.</returns>
+            <example>
+            An example of a call to a business component from a web page that
+            contains a Label control called 'messageLabel'.
+            <code>
+            ExecutionResults result = SomeClass.SomeMethod(arg1);
+            messageLabel.Text = result.ToString(
+            	"{StepType}: {Message}", "&lt;BR&gt;");
+            </code>
+            <code>
+            ExecutionResults result = new ExecutionResults();
+            SomeClass.SomeMethod(arg1, result);
+            messageLabel.Text = result.ToString(
+            	"{StepType}: {Message}", "&lt;BR&gt;");
+            </code>
+            </example>
+        </member>
+        <member name="M:Candor.ExecutionResults.ToHtmlString">
+            <summary>
+            Outputs the results as an Html string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.ExecutionResults.Reset">
+            <summary>
+            Resets this instance to a successful state and clears all
+            error and warning messages.
+            </summary>
+        </member>
+        <member name="P:Candor.ExecutionResults.Success">
+            <summary>
+            Determines if the results of the overall action performed
+            were successful (true), or not (false).
+            </summary>
+        </member>
+        <member name="P:Candor.ExecutionResults.Messages">
+            <summary>
+            Gets the step messages.
+            </summary>
+        </member>
+        <member name="T:Candor.ExecutionStep">
+            <summary>
+            A single completed step within an overall logical execution plan.
+            </summary>
+        </member>
+        <member name="M:Candor.ExecutionStep.#ctor(Candor.ExecutionStepType,System.String)">
+            <summary>
+            Creates a new instance of ExecutionStep
+            </summary>
+            <param name="type">The type of step.</param>
+            <param name="message">A descriptive message.</param>
+        </member>
+        <member name="P:Candor.ExecutionStep.StepType">
+            <summary>
+            Gets the type of execution step.
+            </summary>
+        </member>
+        <member name="P:Candor.ExecutionStep.Message">
+            <summary>
+            Gets the associated descriptive message.
+            </summary>
+        </member>
+        <member name="T:Candor.ExecutionStepType">
+            <summary>
+            The types of execution step.
+            </summary>
+        </member>
+        <member name="F:Candor.ExecutionStepType.Error">
+            <summary>
+            Indicates the step was an error condition.
+            Not necassarily an <see cref="T:System.Exception"/>.
+            </summary>
+        </member>
+        <member name="F:Candor.ExecutionStepType.Warning">
+            <summary>
+            Indicates the step was warning of a potential mistake.
+            </summary>
+        </member>
+        <member name="F:Candor.ExecutionStepType.Info">
+            <summary>
+            Indicates the step is of information purposes only.
+            </summary>
+        </member>
+        <member name="T:Candor.LexicalCharacterSet">
+            <summary>
+            Defines a character set of which can be used to increment a string.
+            </summary>
+        </member>
+        <member name="M:Candor.LexicalCharacterSet.#ctor(System.String,System.Int32,System.Collections.Generic.IList{System.Char})">
+            <summary>
+            Creates a new character set.
+            </summary>
+            <param name="name"></param>
+            <param name="caseInsensitiveLength"></param>
+            <param name="chars"></param>
+        </member>
+        <member name="M:Candor.LexicalCharacterSet.#ctor(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            Creates a new character set.
+            </summary>
+            <param name="name"></param>
+            <param name="caseInsensitiveLength"></param>
+            <param name="chars"></param>
+        </member>
+        <member name="M:Candor.LexicalCharacterSet.FindNext(System.Char,System.Boolean)">
+            <summary>
+            Finds the next character in this set after a given character.
+            </summary>
+            <param name="after"></param>
+            <param name="ignoreCase"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.Characters">
+            <summary>
+            The characters contained in the set.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.CaseInsensitiveLength">
+            <summary>
+            The length of the set when not case sensitive.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.CaseSensitiveLength">
+            <summary>
+            The length of the set when case sensitive.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.IsCaseSensitive">
+            <summary>
+            Determines if case sensitivity is supported or possible by this set.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.Name">
+            <summary>
+            The name of the character set.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.Numeric">
+            <summary>
+            Numeric only characters 0-9.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.AsciiAlphaLower">
+            <summary>
+            Alpha characters only, from the ASCII character set.  Lower case only.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.AsciiAlphaUpper">
+            <summary>
+            Alpha characters only, from the ASCII character set.  Upper case only.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.AsciiAlpha">
+            <summary>
+            Alpha characters only, from the ASCII character set.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.AsciiAlphaNumericLower">
+            <summary>
+            Alpha characters from the ASCII character set, plus numeric. Lower case only.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.AsciiAlphaNumericUpper">
+            <summary>
+            Alpha characters from the ASCII character set, plus numeric. Upper case only.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.AsciiAlphaNumeric">
+            <summary>
+            Alpha characters from the ASCII character set, plus numeric.
+            </summary>
+        </member>
+        <member name="P:Candor.LexicalCharacterSet.KnownCharacterSets">
+            <summary>
+            Gets all the known character sets ordered by smallest size first.
+            </summary>
+        </member>
+        <member name="T:Candor.LexicalCharacterSetExtensions">
+            <summary>
+            Extension methods for LexicalCharacterSet and LexicalCharacterSetType
+            </summary>
+        </member>
+        <member name="M:Candor.LexicalCharacterSetExtensions.ToCharacterSet(Candor.LexicalCharacterSetType)">
+            <summary>
+            Casts the enumeration value of known types into the matching character set.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.LexicalCharacterSetExtensions.ToCharacterSet(Candor.LexicalCharacterSetType,System.String,System.Boolean)">
+            <summary>
+            Casts the enumeration value of known types into the matching character set.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Candor.LexicalCharacterSetType">
+            <summary>
+            Character set options for Lexical String Extensions.
+            </summary>
+        </member>
+        <member name="F:Candor.LexicalCharacterSetType.None">
+            <summary>
+            The default option.
+            </summary>
+        </member>
+        <member name="F:Candor.LexicalCharacterSetType.Numeric">
+            <summary>
+            Numeric only characters 0-9.
+            </summary>
+        </member>
+        <member name="F:Candor.LexicalCharacterSetType.AsciiAuto">
+            <summary>
+            Determine based on input string the most narrow character set to use of 'Numeric', 'AsciiAlpha', or 'AsciiAlphaNumeric'
+            </summary>
+        </member>
+        <member name="F:Candor.LexicalCharacterSetType.AsciiAlpha">
+            <summary>
+            Alpha characters only, from the ASCII character set.
+            </summary>
+        </member>
+        <member name="F:Candor.LexicalCharacterSetType.AsciiAlphaNumeric">
+            <summary>
+            Alpha characters from the ASCII character set, plus numeric.
+            </summary>
+        </member>
+        <member name="T:Candor.PagingAndSortOptions">
+            <summary>
+            Contains options for paging and sorting a large collection of items.
+            </summary>
+        </member>
+        <member name="T:Candor.PagingOptions">
+            <summary>
+            Contains options for paging a large collection of items.
+            </summary>
+        </member>
+        <member name="M:Candor.PagingOptions.GetItemCountForPage">
+            <summary>
+            Gets the number of items on the current page as determined by
+            <see cref="P:Candor.PagingOptions.PageIndex"/>.  This will be the lesser of 
+            <see cref="P:Candor.PagingOptions.TotalItemCount"/> minus the items on the previous pages
+            and the <see cref="P:Candor.PagingOptions.PageSize"/>; but no less than zero.
+            </summary>
+            <returns>
+            An integer between zero and <see cref="P:Candor.PagingOptions.PageSize"/>
+            </returns>
+        </member>
+        <member name="M:Candor.PagingOptions.GetTotalPageCount">
+            <summary>
+            Gets the total number of pages given the current paging details.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.PagingOptions.GetDisabledPagingOptions">
+            <summary>
+            Gets a set of PagingOptions with paging disabled.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.PagingOptions.GetPagingByPage(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Creates a new paging options based on a nullable page and page size.
+            </summary>
+            <param name="page">Either null, or a 1 based page number (not page index)</param>
+            <param name="itemsPerPage">Either null for the default, or the number of items for each page.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Candor.PagingOptions.Enabled">
+            <summary>
+            Gets or sets an indication if paging is enabled.
+            </summary>
+            <remarks>
+            If false, all applicable items should be returned.  
+            If true (default), then only the items on the specified
+            page should be returned.
+            </remarks>
+        </member>
+        <member name="P:Candor.PagingOptions.PageIndex">
+            <summary>
+            Gets or sets the index of the page.
+            </summary>
+        </member>
+        <member name="P:Candor.PagingOptions.PageSize">
+            <summary>
+            Gets or sets the number of items contained on each page.
+            </summary>
+        </member>
+        <member name="P:Candor.PagingOptions.TotalItemCount">
+            <summary>
+            Gets or sets the total number of items.
+            </summary>
+        </member>
+        <member name="M:Candor.PagingAndSortOptions.#ctor">
+            <summary>
+            Creates a new instance of PagingAndSortOptions
+            </summary>
+        </member>
+        <member name="M:Candor.PagingAndSortOptions.#ctor(Candor.PagingOptions)">
+            <summary>
+            Creates a new instance of PagingAndSortOptions
+            </summary>
+        </member>
+        <member name="M:Candor.PagingAndSortOptions.GetDisabledPagingAndSortOptions">
+            <summary>
+            Gets a set of PagingOptions with paging disabled.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Candor.PagingAndSortOptions.SortOptions">
+            <summary>
+            Gets the sort properties
+            </summary>
+        </member>
+        <member name="T:Candor.Reflection.ReflectionExtensions">
+            <summary>
+            Defines some extension methods for enhanced reflection based operations.
+            </summary>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.PropertyInfo``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Gets the property info as a result of the property at the end of a lambda expression.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="source">The source object instance.</param>
+            <param name="propertyLambda">The lamda expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.GetAttribute``3(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Gets the attribute instance of a specific type from a property specified by a lambda expression, if applicable.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <typeparam name="TAttribute"></typeparam>
+            <param name="source">The source instance.</param>
+            <param name="propertyLambda">A property lambda expression.</param>
+            <returns>The attribute instance.</returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Gets the attribute instance of a runtime MemberInfo (and thus PropertyInfo) instance.
+            </summary>
+            <typeparam name="TAttribute"></typeparam>
+            <param name="propInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.DisplayName``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Gets the display name of a property given a lambda expression.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="source">The source instance.</param>
+            <param name="propertyLambda">A property lambda expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.GetDisplayName(System.Reflection.MemberInfo)">
+            <summary>
+            Gets the display name of a runtime MemberInfo (and thus PropertyInfo) instance.
+            </summary>
+            <param name="propInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.Description``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Gets the description of a property given a lambda expression.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="source">The source instance.</param>
+            <param name="propertyLambda">A property lambda expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.Description(System.Enum)">
+            <summary>
+            Gets the description of an enum value.
+            </summary>
+            <param name="this">The enum value.</param>
+            <returns>The value of the Description attribute, or if missing then the enum value.</returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.GetDescription(System.Reflection.MemberInfo)">
+            <summary>
+            Gets the description of a runtime MemberInfo (and thus PropertyInfo) instance.
+            </summary>
+            <param name="propInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.GetFullPropertyName``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},System.String)">
+            <summary>
+            Gets a full property name with a specified separator between the parts of the expression chain.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="exp">A lamda expression.  Example: "model=> model.Contact.Name"</param>
+            <param name="separator">The separator, such as "." or "_"</param>
+            <returns>"Contact.Name", or "Contact_Name"</returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.TryFindMemberExpression(System.Linq.Expressions.Expression,System.Linq.Expressions.MemberExpression@)">
+            <summary>
+            Finds the member expression portion of a lamda expression, stripping out any conversions/casts.
+            </summary>
+            <param name="exp">A lamda expression.</param>
+            <param name="memberExp">An output of the simple expression</param>
+            <returns>True if a member expression was found, otherwise false.</returns>
+        </member>
+        <member name="M:Candor.Reflection.ReflectionExtensions.IsConversion(System.Linq.Expressions.Expression)">
+            <summary>
+            Determines if this is a conversion expression.
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+            <remarks>
+            if the compiler created an automatic conversion,
+            it'll look something like...
+            obj => Convert(obj.Property) [e.g., int -> object]
+            OR:
+            obj => ConvertChecked(obj.Property) [e.g., int -> long]
+            ...which are the cases checked in IsConversion
+            </remarks>
+        </member>
+        <member name="T:Candor.SortOption">
+            <summary>
+            Contains options for sorting a large collection of items.
+            </summary>
+        </member>
+        <member name="M:Candor.SortOption.#ctor(System.String,System.Int16)">
+            <summary>
+            Creates a new instance of a SortOption.
+            </summary>
+            <param name="propertyName">The name of the property to sort by.</param>
+            <param name="direction">The direction of the sort.</param>
+        </member>
+        <member name="P:Candor.SortOption.PropertyName">
+            <summary>
+            Gets or sets the name of the property to sort by.
+            </summary>
+        </member>
+        <member name="P:Candor.SortOption.Direction">
+            <summary>
+            Gets or sets the direction of the sort.  positive (1) for ascending (default), negative (-1) for descending
+            </summary>
+        </member>
+        <member name="T:Candor.StringExtensions">
+            <summary>
+            Various common use case extensions to <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:Candor.StringExtensions.CamelCaseToPhrase(System.String)">
+            <summary>
+            Puts spaces in a camel cased string before each capital letter and makes the capital letters lower case.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.StringExtensions.ToPascalCase(System.String)">
+            <summary>
+            Converts a sentence or _ separated word string into a no whitespace/underscore pascal case name.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.StringExtensions.ToProperNameCase(System.String)">
+            <summary>
+            Converts a string to a format of a proper name.  Each word is capitalized.
+            underscores become spaces (word boundaries).  
+            Acronyms are assumed when the text is all letters in all caps, and then no change is made.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.StringExtensions.ToSentence(System.String)">
+            <summary>
+            Converts a string to a sentence, making word boundaries at capital letters following a lower case letter
+            and replacing underscores with a space.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.StringExtensions.ToDigitsOnly(System.String)">
+            <summary>
+            Gets only the digits portion of a string.
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.StringExtensions.GenerateTeaser(System.String,System.Int32,System.Int32)">
+            <summary>
+            Generates a teaser phrase from any body of text.  If the text is shortened
+            from the specified max length, an ellipsis ("...") is added.
+            </summary>
+            <param name="text">The original body text.</param>
+            <param name="maxSentences">The max number of sentences from the original text.</param>
+            <param name="maxCharacters">The maximum total characters to return.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Candor.StringExtensions.RemoveDiacritics(System.String)">
+            <summary>
+            Removes diacritics from a text body.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+            <remarks>
+            a sign, such as an accent or cedilla, which when written above or below a letter indicates 
+            a difference in pronunciation from the same letter when unmarked or differently marked.
+            </remarks>
+        </member>
+        <member name="M:Candor.StringExtensions.LexicalAdd(System.String,Candor.LexicalCharacterSet,System.Boolean,System.Int32)">
+            <summary>
+            Performs a lexicographical addition to a string by any amount.  See
+            http://wikipedia.org/wiki/Lexicographical_order, and further
+            remarks for this member.
+            </summary>
+            <example>"code" + 2 in Ascii alpha (case insensitive) == "codg"</example>
+            <example>"code" + 2 in Ascii alpha (case sensitive) == "codf"</example>
+            <param name="source">The string to increment from.</param>
+            <param name="charSet">The character set defining the characters and their order.</param>
+            <param name="ignoreCase">Specifies if case should be ignored as an incremented value.
+            If true, incremented character positions will be the case of the majority of other
+            values; which may or may not be the same as the character being replaced.</param>
+            <param name="count"></param>
+            <returns></returns>
+            <remarks>
+            <p>
+            This may or may not result in a value that sorts in the correct 
+            order as if it were a file name in a file explorer.
+            </p>
+            <p>
+            If the string is at the highest character for each position or the 
+            number added moves past that position, then a new character position
+            is incremented to the left (by adding a character position).  This
+            then behaves the same as if the source was left whitespace padded.
+            Performance scales based on the number of characters incremented
+            in the string.
+            </p>
+            <p>
+            Incrementing the value always starts on the right and moves left
+            as with numeric additions.  Right whitespace padded strings will
+            increment values in the whitespace before advancing to the characters
+            on the left.  If this is not desired behavior then Trim the source
+            when passed into this method.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Candor.StringExtensions.LexicalAdd(System.String,Candor.LexicalCharacterSet,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Performs a lexicographical addition to a string by any amount.  See
+            http://wikipedia.org/wiki/Lexicographical_order, and further
+            remarks for this member.
+            </summary>
+            <example>"code" + 2 in Ascii alpha (case insensitive) == "codg"</example>
+            <example>"code" + 2 in Ascii alpha (case sensitive) == "codf"</example>
+            <param name="source">The string to increment from.</param>
+            <param name="charSet">The character set defining the characters and their order.</param>
+            <param name="ignoreCase">Specifies if case should be ignored as an incremented value.
+            If true, incremented character positions will be the case of the majority of other
+            values; which may or may not be the same as the character being replaced.</param>
+            <param name="treatNonCharsAsSpace">
+            Indicates if non character set characters should be treated as 
+            a space and be eligible for incrementing.
+            </param>
+            <param name="count"></param>
+            <returns></returns>
+            <remarks>
+            <p>
+            This may or may not result in a value that sorts in the correct 
+            order as if it were a file name in a file explorer.
+            </p>
+            <p>
+            If the string is at the highest character for each position or the 
+            number added moves past that position, then a new character position
+            is incremented to the left (by adding a character position).  This
+            then behaves the same as if the source was left whitespace padded.
+            Performance scales based on the number of characters incremented
+            in the string.
+            </p>
+            <p>
+            Incrementing the value always starts on the right and moves left
+            as with numeric additions.  Right whitespace padded strings will
+            increment values in the whitespace before advancing to the characters
+            on the left.  If this is not desired behavior then Trim the source
+            when passed into this method.
+            </p>
+            </remarks>
+        </member>
+        <member name="M:Candor.StringExtensions.LexicalIncrement(System.String,Candor.LexicalCharacterSet,System.Boolean)">
+            <summary>
+            Increments a source string to the next logical higher value.  Characters are incremented without altering length first.
+            If all character positions are at the highest character, then a new lowest value character is added to the end.
+            </summary>
+            <param name="source">The source string.</param>
+            <param name="charSet">The character set to use.  If the source string characters do not all fit in this set, an exception is thrown.</param>
+            <param name="ignoreCase">Specified if case is to be ignored for alpha characters.</param>
+            <returns>The incremented string.</returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Candor.StringExtensions.TrimEndNotIn(System.String,System.Collections.Generic.IList{System.Char})">
+            <summary>
+            Trims any characters from the end of a string that is not in the supplied list.
+            </summary>
+            <param name="text">The text to be scanned.</param>
+            <param name="chars">The characters to be kept, such as a LexicalCharacterSet characters list.</param>
+            <returns>
+            Returns a new string with ending characters not in the list removed.  
+            If none of the characters in  the string are in the list, then an empty string is returned.
+            </returns>
+        </member>
+        <member name="M:Candor.StringExtensions.TrimStartNotIn(System.String,System.Collections.Generic.IList{System.Char})">
+            <summary>
+            Trims any characters from the start of a string that is not in the supplied list.
+            </summary>
+            <param name="text">The text to be scanned.</param>
+            <param name="chars">The characters to be kept, such as a LexicalCharacterSet characters list.</param>
+            <returns>
+            Returns a new string with starting characters not in the list removed.  
+            If none of the characters in  the string are in the list, then an empty string is returned.
+            </returns>
+        </member>
+        <member name="M:Candor.StringExtensions.TrimNotIn(System.String,System.Collections.Generic.IList{System.Char})">
+            <summary>
+            Trims any characters from the start and end of a string that is not in the supplied list.
+            </summary>
+            <param name="text">The text to be scanned.</param>
+            <param name="chars">The characters to be kept, such as a LexicalCharacterSet characters list.</param>
+            <returns>
+            Returns a new string with starting and ending characters not in the list removed.  
+            If none of the characters in  the string are in the list, then an empty string is returned.
+            </returns>
+        </member>
+        <member name="M:Candor.StringExtensions.ReplaceNotIn(System.String,System.Collections.Generic.IList{System.Char},System.String)">
+            <summary>
+            Replaces all characters in a text string that are not in a given list.
+            </summary>
+            <param name="text">The text to be scanned.</param>
+            <param name="chars">The characters to be kept, such as a LexicalCharacterSet characters list.</param>
+            <param name="replacement">The string to put in place of each character not in 'chars'.</param>
+            <returns>Returns a new string with the replaced characters.  If none of the characters in
+            the string are in the list, then an empty string is returned.</returns>
+        </member>
+        <member name="T:Candor.Tasks.IterationResult">
+            <summary>
+            Custom options to control the repeating operation flow from
+            a result of an iteration.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.IterationResult.NextWaitingPeriodSeconds">
+            <summary>
+            A custom amount of time to resume the next iteration.
+            Return 0 to default to the configured WaitingPeriodSeconds of this task.
+            </summary>
+        </member>
+        <member name="T:Candor.Tasks.RepeatingWorkerRoleTask">
+            <summary>
+            A worker task that repeats on a specific interval.
+            </summary>
+        </member>
+        <member name="T:Candor.Tasks.WorkerRoleTask">
+            <summary>
+            The base (partial) implemenation for a Worker Role.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRoleTask.OnStart">
+            <summary>
+            Starts this worker roles work loop, typically with a timer, and then returns immediately.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRoleTask.OnStop">
+            <summary>
+            Stops the work loop and then returns when complete.  Expect the process to terminate
+            potentially immediately after this method returns.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRoleTask.Ping">
+            <summary>
+            Pings the task to ensure it is working properly.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.#ctor">
+            <summary>
+            The default constructor.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.Finalize">
+            <summary>
+            Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.Initialize(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes the provider with the specified values.
+            </summary>
+            <param name="name">The name of the provider.</param>
+            <param name="configValue">Provider specific attributes.</param>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.OnStart">
+            <summary>
+            Starts this worker roles work loop, typically with a timer, and then returns immediately.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.OnStop">
+            <summary>
+            Stops the work loop and then returns when complete.  Expect the process to terminate
+            potentially immediately after this method returns.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.Ping">
+            <summary>
+            Pings the task to ensure that it is running.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.CheckIn">
+            <summary>
+            The derived class can mark that it has reached an activity checkpoint to verify that it is still active.
+            </summary>
+            <remarks>
+            If too much time passes before a check in or a release of a work period then the timer is restarted when
+            this task is pinged.
+            </remarks>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.OnWaitingPeriodElapsed">
+            <summary>
+            The code to be executed everytime the waiting period elapses.
+            </summary>
+            <remarks>
+            This will complete before the waiting period until the next iteration begins.
+            </remarks>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.OnWaitingPeriodElapsedAdvanced">
+            <summary>
+            Code to be executed everytime the waiting period elapses,
+            but with controls to alter the flow of subsequent iterations.
+            This gives more fine grained control to derived classes to
+            follow different workloads on a custom schedule.
+            </summary>
+            <returns></returns>
+            <remarks>
+            If this method is overridden, then the other OnWaitingPeriodElapsed 
+            method will never be called by this base class.
+            </remarks>
+        </member>
+        <member name="M:Candor.Tasks.RepeatingWorkerRoleTask.Dispose">
+            <summary>
+            Disposed of resources used by this monitor.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.RepeatingWorkerRoleTask.LogProvider">
+            <summary>
+            Gets or sets the log destination for this type.  If not set, it will be automatically loaded when needed.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.RepeatingWorkerRoleTask.IsRunning">
+            <summary>
+            Determines if the task is currently started.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.RepeatingWorkerRoleTask.WaitingPeriodSeconds">
+            <summary>
+            Gets or sets the amount of time to wait between completing rating
+            one group of activities, and starting the next group.
+            </summary>
+        </member>
+        <member name="T:Candor.Tasks.WorkerRole">
+            <summary>
+            A container for running any number of configured background tasks.
+            </summary>
+            <remarks>
+            This is designed to be run within a windows service or a Windows Azure
+            worker role instance.
+            </remarks>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRole.#ctor(Candor.Configuration.Provider.ProviderCollection{Candor.Tasks.WorkerRoleTask})">
+            <summary>
+            The primary constructor taking in the tasks to be run in this role.
+            </summary>
+            <param name="tasks"></param>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRole.Finalize">
+            <summary>
+            Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRole.OnStart">
+            <summary>
+            Starts this worker role and all containing tasks.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException"></exception>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRole.OnStop">
+            <summary>
+            Stops the worker role and all contained tasks.
+            </summary>
+        </member>
+        <member name="M:Candor.Tasks.WorkerRole.Dispose">
+            <summary>
+            Disposed of resources used by this monitor.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.WorkerRole.LogProvider">
+            <summary>
+            Gets or sets the log destination for this type.  If not set, it will be automatically loaded when needed.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.WorkerRole.IsRunning">
+            <summary>
+            Determines if the role is currently running.
+            </summary>
+        </member>
+        <member name="P:Candor.Tasks.WorkerRole.PingInterval">
+            <summary>
+            Gets or sets the interval of time between ping to each task to ensure they are alive.
+            </summary>
+            <remarks>
+            The default is 5 minutes.
+            </remarks>
+        </member>
+    </members>
+</doc>

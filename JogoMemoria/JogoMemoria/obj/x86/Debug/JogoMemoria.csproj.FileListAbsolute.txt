@@ -1,0 +1,11 @@
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\JogoMemoria.frmMenu.resources
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\JogoMemoria.Properties.Resources.resources
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\bin\Debug\JogoMemoria.exe
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\bin\Debug\JogoMemoria.pdb
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\JogoMemoria.exe
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\JogoMemoria.pdb
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\bin\Debug\JogoMemoria.exe.config
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\ResGen.read.1.tlog
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\ResGen.write.1.tlog
+C:\Maxwell\PROJETOS\CSharp\JogoMemoria\JogoMemoria\obj\x86\Debug\JogoMemoria.frmJogo.resources

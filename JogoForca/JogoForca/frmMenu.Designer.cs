@@ -40,11 +40,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblAjuda = new System.Windows.Forms.Label();
             this.pCredito = new System.Windows.Forms.Panel();
-            this.lblFecharCredito = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblFecharCredito = new System.Windows.Forms.Label();
             this.pInstrucao = new System.Windows.Forms.Panel();
-            this.lblFecharInstrucao = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblFecharInstrucao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pCredito.SuspendLayout();
             this.pInstrucao.SuspendLayout();
@@ -113,7 +113,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 25;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // picLogo
@@ -158,6 +158,16 @@
             this.pCredito.TabIndex = 4;
             this.pCredito.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(437, 98);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Programação, Design e Som por Maxwell Miquelino";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblFecharCredito
             // 
             this.lblFecharCredito.AutoSize = true;
@@ -168,16 +178,6 @@
             this.lblFecharCredito.TabIndex = 0;
             this.lblFecharCredito.Text = "X";
             this.lblFecharCredito.Click += new System.EventHandler(this.lblFecharCredito_Click);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(437, 98);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Programação, Design e Som por Maxwell Miquelino";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pInstrucao
             // 
@@ -190,6 +190,15 @@
             this.pInstrucao.TabIndex = 2;
             this.pInstrucao.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(447, 204);
+            this.label5.TabIndex = 1;
+            this.label5.Text = resources.GetString("label5.Text");
+            // 
             // lblFecharInstrucao
             // 
             this.lblFecharInstrucao.AutoSize = true;
@@ -200,15 +209,6 @@
             this.lblFecharInstrucao.TabIndex = 0;
             this.lblFecharInstrucao.Text = "X";
             this.lblFecharInstrucao.Click += new System.EventHandler(this.lblFecharInstrucao_Click);
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(447, 204);
-            this.label5.TabIndex = 1;
-            this.label5.Text = resources.GetString("label5.Text");
             // 
             // frmMenu
             // 
