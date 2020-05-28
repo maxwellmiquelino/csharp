@@ -1,0 +1,10 @@
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\bin\Debug\ConexaoSQLServer.exe.config
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\bin\Debug\ConexaoSQLServer.exe
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\bin\Debug\ConexaoSQLServer.pdb
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.csprojAssemblyReference.cache
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.Form1.resources
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.Properties.Resources.resources
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.csproj.GenerateResource.cache
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.csproj.CoreCompileInputs.cache
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.exe
+C:\Users\maxwe\OneDrive\GITHUB\csharp\ConexaoSQLServer\ConexaoSQLServer\obj\Debug\ConexaoSQLServer.pdb
