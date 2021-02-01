@@ -1,0 +1,4 @@
+29/10/2020 21:35:22 - BancoDados.List<FormaPagto> listarUsuarioBySeqformapagto(string seqformapagto)() : SQL logic error
+near "and": syntax error
+29/10/2020 21:35:28 - BancoDados.List<Pessoa> listarMovtoPlaca(string seqpessoa)() : SQL logic error
+incomplete input

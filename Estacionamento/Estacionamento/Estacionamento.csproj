@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\SQLite.3.13.0\build\net45\SQLite.props" Condition="Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{0AB547FF-6BBC-461F-A9C8-3893D3210E77}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Estacionamento</RootNamespace>
+    <AssemblyName>Estacionamento</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.113.1\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Vip.Printer, Version=1.0.19.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vip.Printer.1.0.19\lib\net45\Vip.Printer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUtil\BancoDados.cs" />
+    <Compile Include="AppUtil\Daruma.cs" />
+    <Compile Include="AppUtil\Mensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppUtil\Mensagem.Designer.cs">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppUtil\Funcao.cs" />
+    <Compile Include="AppUtil\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppUtil\Pesquisar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppUtil\Pesquisar.Designer.cs">
+      <DependentUpon>Pesquisar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ConvenioController.cs" />
+    <Compile Include="Controller\EnderecoController.cs" />
+    <Compile Include="Controller\FormaPagtoController.cs" />
+    <Compile Include="Controller\ModeloController.cs" />
+    <Compile Include="Controller\MovimentoController.cs" />
+    <Compile Include="Controller\ParametroController.cs" />
+    <Compile Include="Controller\PessoaController.cs" />
+    <Compile Include="Controller\TelefoneController.cs" />
+    <Compile Include="DataModel\AppDataBase.cs" />
+    <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="dsFormaPagto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFormaPagto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsMarca.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMarca.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsModelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsModelo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsViewModelo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsViewModelo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsViewMovto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsViewMovto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsViewPessoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsViewPessoa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Convenio.cs" />
+    <Compile Include="Model\Endereco.cs" />
+    <Compile Include="Model\FormaPagtoMovto.cs" />
+    <Compile Include="Model\Parametro.cs" />
+    <Compile Include="Model\Pessoa.cs" />
+    <Compile Include="Model\FormaPagto.cs" />
+    <Compile Include="Model\Marca.cs" />
+    <Compile Include="Model\Modelo.cs" />
+    <Compile Include="Model\Movimento.cs" />
+    <Compile Include="Model\Telefone.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="View\Cadastro\frmCadConvenio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadConvenio.Designer.cs">
+      <DependentUpon>frmCadConvenio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadFormaPagto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadFormaPagto.Designer.cs">
+      <DependentUpon>frmCadFormaPagto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadUsuario.Designer.cs">
+      <DependentUpon>frmCadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Movimento\frmMovimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Movimento\frmMovimento.Designer.cs">
+      <DependentUpon>frmMovimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Outros\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Outros\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Outros\frmParametros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Outros\frmParametros.Designer.cs">
+      <DependentUpon>frmParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Outros\frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Outros\frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cadastro\frmCadPessoa.Designer.cs">
+      <DependentUpon>frmCadPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Outros\frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Outros\frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelatorio.Designer.cs">
+      <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelCadPessoas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelCadPessoas.Designer.cs">
+      <DependentUpon>frmRelCadPessoas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelCadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelCadUsuario.Designer.cs">
+      <DependentUpon>frmRelCadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelFormaPagto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelFormaPagto.Designer.cs">
+      <DependentUpon>frmRelFormaPagto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelMarca.Designer.cs">
+      <DependentUpon>frmRelMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelModelo.Designer.cs">
+      <DependentUpon>frmRelModelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelMovimentacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Relatorio\frmRelMovimentacao.Designer.cs">
+      <DependentUpon>frmRelMovimentacao.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="dsFormaPagto.xsc">
+      <DependentUpon>dsFormaPagto.xsd</DependentUpon>
+    </None>
+    <None Include="dsFormaPagto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFormaPagto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsFormaPagto.xss">
+      <DependentUpon>dsFormaPagto.xsd</DependentUpon>
+    </None>
+    <None Include="dsMarca.xsc">
+      <DependentUpon>dsMarca.xsd</DependentUpon>
+    </None>
+    <None Include="dsMarca.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMarca.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsMarca.xss">
+      <DependentUpon>dsMarca.xsd</DependentUpon>
+    </None>
+    <None Include="dsModelo.xsc">
+      <DependentUpon>dsModelo.xsd</DependentUpon>
+    </None>
+    <None Include="dsModelo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsModelo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsModelo.xss">
+      <DependentUpon>dsModelo.xsd</DependentUpon>
+    </None>
+    <None Include="dsUsuario.xsc">
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="dsUsuario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUsuario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsUsuario.xss">
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="dsViewModelo.xsc">
+      <DependentUpon>dsViewModelo.xsd</DependentUpon>
+    </None>
+    <None Include="dsViewModelo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsViewModelo.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsViewModelo.xss">
+      <DependentUpon>dsViewModelo.xsd</DependentUpon>
+    </None>
+    <None Include="dsViewMovto.xsc">
+      <DependentUpon>dsViewMovto.xsd</DependentUpon>
+    </None>
+    <None Include="dsViewMovto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsViewMovto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsViewMovto.xss">
+      <DependentUpon>dsViewMovto.xsd</DependentUpon>
+    </None>
+    <None Include="dsViewPessoa.xsc">
+      <DependentUpon>dsViewPessoa.xsd</DependentUpon>
+    </None>
+    <None Include="dsViewPessoa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsViewPessoa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsViewPessoa.xss">
+      <DependentUpon>dsViewPessoa.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppUtil\Mensagem.resx">
+      <DependentUpon>Mensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppUtil\InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppUtil\Pesquisar.resx">
+      <DependentUpon>Pesquisar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro\frmCadConvenio.resx">
+      <DependentUpon>frmCadConvenio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro\frmCadFormaPagto.resx">
+      <DependentUpon>frmCadFormaPagto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro\frmCadUsuario.resx">
+      <DependentUpon>frmCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Movimento\frmMovimento.resx">
+      <DependentUpon>frmMovimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Outros\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Outros\frmParametros.resx">
+      <DependentUpon>frmParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Outros\frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cadastro\frmCadPessoa.resx">
+      <DependentUpon>frmCadPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Outros\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelatorio.resx">
+      <DependentUpon>frmRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelCadPessoas.resx">
+      <DependentUpon>frmRelCadPessoas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelCadUsuario.resx">
+      <DependentUpon>frmRelCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelFormaPagto.resx">
+      <DependentUpon>frmRelFormaPagto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelMarca.resx">
+      <DependentUpon>frmRelMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelModelo.resx">
+      <DependentUpon>frmRelModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\frmRelMovimentacao.resx">
+      <DependentUpon>frmRelMovimentacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Relatorio\relCadFormaPagto.rdlc" />
+    <EmbeddedResource Include="View\Relatorio\relCadPessoa.rdlc" />
+    <EmbeddedResource Include="View\Relatorio\relCadUsuario.rdlc" />
+    <EmbeddedResource Include="View\Relatorio\relMarcaVeiculo.rdlc" />
+    <EmbeddedResource Include="View\Relatorio\relModelo.rdlc" />
+    <EmbeddedResource Include="View\Relatorio\relMovimentacao.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Excluir.png" />
+    <None Include="Resources\BotaoFechar3.png" />
+    <None Include="Resources\BotaoFechar2.png" />
+    <None Include="Resources\BotaoFechar1.png" />
+    <None Include="Resources\BotaoMinimizar.png" />
+    <None Include="Resources\BotaoMaximizar.png" />
+    <None Include="Resources\BotaoFechar.png" />
+    <None Include="Resources\Sair.png" />
+    <None Include="Resources\OK.png" />
+    <None Include="Resources\Usuario.png" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Informacao.jpg" />
+    <None Include="Resources\Error.png" />
+    <None Include="Resources\Voltar.png" />
+    <None Include="Resources\Pesquisar.png" />
+    <None Include="Resources\Limpar.png" />
+    <None Include="Resources\Incluir.png" />
+    <None Include="Resources\Gravar.png" />
+    <None Include="Resources\Alterar.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net46\System.Data.SQLite.Core.targets')" />
+</Project>

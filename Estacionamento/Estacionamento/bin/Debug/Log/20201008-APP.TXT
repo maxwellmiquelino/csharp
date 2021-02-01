@@ -1,0 +1,50 @@
+08/10/2020 14:11:33 - Arquivo do banco de dados ( estacionamento.db ) criado com sucesso !!!
+08/10/2020 14:11:33 - Tabela 'pessoa' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'convenio' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'formapagto' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'marca' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'modelo' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'movto' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'movtoformapagto' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'parametro' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'telefone' criado com sucessso!
+08/10/2020 14:11:33 - Tabela 'usuario' criado com sucessso!
+08/10/2020 14:11:33 - View 'vw_usuario' criado com sucessso!
+08/10/2020 14:11:33 - View 'vw_formapagto' criado com sucessso!
+08/10/2020 14:11:34 - View 'vw_pessoa' criado com sucessso!
+08/10/2020 14:11:34 - View 'vw_convenio' criado com sucessso!
+08/10/2020 14:11:34 - View 'vw_movimento' criado com sucessso!
+08/10/2020 14:11:34 - View 'vw_modelo' criado com sucessso!
+08/10/2020 14:11:34 - Dados na tabela 'formapagto' inserido com sucessso!
+08/10/2020 14:11:39 - Dados na tabela 'marca' inserido com sucessso!
+08/10/2020 14:11:43 - Dados de caminhão na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:12:05 - Dados de nautica na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:12:17 - Dados de moto na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:12:34 - Dados de carro na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:12:34 - Dados de parametro na tabela 'parametro' inserido com sucessso!
+08/10/2020 14:12:34 - Dados na tabela 'usuario' inserido com sucessso!
+08/10/2020 14:29:11 - Arquivo do banco de dados ( estacionamento.db ) criado com sucesso !!!
+08/10/2020 14:29:11 - Tabela 'pessoa' criado com sucessso!
+08/10/2020 14:29:11 - Tabela 'convenio' criado com sucessso!
+08/10/2020 14:29:11 - Tabela 'formapagto' criado com sucessso!
+08/10/2020 14:29:11 - Tabela 'marca' criado com sucessso!
+08/10/2020 14:29:11 - Tabela 'modelo' criado com sucessso!
+08/10/2020 14:29:12 - Tabela 'movto' criado com sucessso!
+08/10/2020 14:29:12 - Tabela 'movtoformapagto' criado com sucessso!
+08/10/2020 14:29:12 - Tabela 'parametro' criado com sucessso!
+08/10/2020 14:29:12 - Tabela 'telefone' criado com sucessso!
+08/10/2020 14:29:12 - Tabela 'usuario' criado com sucessso!
+08/10/2020 14:29:12 - View 'vw_usuario' criado com sucessso!
+08/10/2020 14:29:12 - View 'vw_formapagto' criado com sucessso!
+08/10/2020 14:29:12 - View 'vw_pessoa' criado com sucessso!
+08/10/2020 14:29:12 - View 'vw_convenio' criado com sucessso!
+08/10/2020 14:29:12 - View 'vw_movimento' criado com sucessso!
+08/10/2020 14:29:12 - View 'vw_modelo' criado com sucessso!
+08/10/2020 14:29:12 - Dados na tabela 'formapagto' inserido com sucessso!
+08/10/2020 14:29:17 - Dados na tabela 'marca' inserido com sucessso!
+08/10/2020 14:29:21 - Dados de caminhão na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:29:42 - Dados de nautica na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:29:53 - Dados de moto na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:30:10 - Dados de carro na tabela 'modelo' inserido com sucessso!
+08/10/2020 14:30:10 - Dados de parametro na tabela 'parametro' inserido com sucessso!
+08/10/2020 14:30:10 - Dados na tabela 'usuario' inserido com sucessso!
