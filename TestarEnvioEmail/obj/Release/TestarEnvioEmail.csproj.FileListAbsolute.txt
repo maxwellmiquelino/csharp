@@ -1,0 +1,11 @@
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Release\TestarEnvioEmail.exe.config
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Release\TestarEnvioEmail.exe
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Release\TestarEnvioEmail.pdb
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.csproj.AssemblyReference.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.csproj.SuggestedBindingRedirects.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.Form1.resources
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.Properties.Resources.resources
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.csproj.GenerateResource.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.csproj.CoreCompileInputs.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.exe
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Release\TestarEnvioEmail.pdb

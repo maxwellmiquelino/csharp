@@ -1,0 +1,13 @@
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Debug\TestarEnvioEmail.exe.config
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Debug\TestarEnvioEmail.exe
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Debug\TestarEnvioEmail.pdb
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.csproj.AssemblyReference.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.Form1.resources
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.Properties.Resources.resources
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.csproj.GenerateResource.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.csproj.CoreCompileInputs.cache
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.exe
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEnvioEmail.pdb
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Debug\Newtonsoft.Json.dll
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\bin\Debug\Newtonsoft.Json.xml
+C:\Users\maxwe\OneDrive\EXEMPLOS\CSHARP\TestarEnvioEmail\obj\Debug\TestarEn.B710F267.Up2Date
